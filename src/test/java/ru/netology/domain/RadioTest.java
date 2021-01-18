@@ -5,49 +5,37 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-
+    Radio radio=new Radio();
     @Test
     void shouldincreaseSound() {
-        Radio radio=new Radio();
-        radio.setCurrentSoundVolume(7);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
+        radio.setCurrentSoundVolume(85);
         radio.increaseSound();
-        int expected = 8;
+        int expected = 86;
 
         assertEquals(expected, radio.getCurrentSoundVolume());
 
     }
     @Test
     void shouldincreaseSound2() {
-        Radio radio=new Radio();
-        radio.setCurrentSoundVolume(11);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
+        radio.setCurrentSoundVolume(101);
         radio.increaseSound();
-        int expected = 10;
+        int expected = 100;
 
         assertEquals(expected, radio.getCurrentSoundVolume());
 
     }
     @Test
     void shoulddecreaseSound() {
-        Radio radio=new Radio();
-        radio.setCurrentSoundVolume(10);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
+        radio.setCurrentSoundVolume(100);
         radio.decreaseSound();
-        int expected = 9;
+        int expected = 99;
 
         assertEquals(expected, radio.getCurrentSoundVolume());
 
     }
     @Test
     void shoulddecreaseSound2() {
-        Radio radio=new Radio();
         radio.setCurrentSoundVolume(-1);
-        radio.setMaxSoundVolume(10);
-        radio.setMinSoundVolume(0);
         radio.decreaseSound();
         int expected = 0;
 
@@ -56,9 +44,6 @@ class RadioTest {
     }
     @Test
     void shouldprevRadioStation() {
-        Radio radio = new Radio();
-        radio.setMaxRadioStation(9);
-        radio.setMinRadioStation(0);
         radio.setCurrentRadioStation(6);
         radio.prevRadioStation();
         int expected = 5;
@@ -67,20 +52,14 @@ class RadioTest {
     }
     @Test
     void shouldprevRadioStation2() {
-        Radio radio = new Radio();
-        radio.setMaxRadioStation(9);
-        radio.setMinRadioStation(0);
         radio.setCurrentRadioStation(-1);
         radio.prevRadioStation();
-        int expected = 9;
+        int expected =10;
 
         assertEquals(expected, radio.getCurrentRadioStation());
     }
     @Test
     void shouldnnextRadioStation () {
-        Radio radio = new Radio();
-        radio.setMaxRadioStation(9);
-        radio.setMinRadioStation(0);
         radio.setCurrentRadioStation(7);
         radio.nextRadioStation();
         int expected = 8;
@@ -89,10 +68,7 @@ class RadioTest {
     }
     @Test
     void shouldnnextRadioStation2 () {
-        Radio radio = new Radio();
-        radio.setMaxRadioStation(9);
-        radio.setMinRadioStation(0);
-        radio.setCurrentRadioStation(10);
+        radio.setCurrentRadioStation(11);
         radio.nextRadioStation();
         int expected = 0;
 

@@ -1,22 +1,27 @@
 package ru.netology.domain;
 
 public class Radio {
-    private String name;
     private int currentRadioStation;
-    private int maxRadioStation;
-    private int minRadioStation;
+    private int maxRadioStation = 10;
+    private int minRadioStation = 0;
     private int currentSoundVolume;
-    private int maxSoundVolume;
-    private int minSoundVolume;
+    private int maxSoundVolume = 100;
+    private int minSoundVolume = 0;
     private boolean on;
 
-    public String getName() {
-        return name;
+    public Radio(int currentRadioStation, int maxRadioStation, int minRadioStation, int currentSoundVolume, int maxSoundVolume, int minSoundVolume, boolean on) {
+        this.currentRadioStation = currentRadioStation;
+        this.maxRadioStation = maxRadioStation;
+        this.minRadioStation = minRadioStation;
+        this.currentSoundVolume = currentSoundVolume;
+        this.maxSoundVolume = maxSoundVolume;
+        this.minSoundVolume = minSoundVolume;
+        this.on = on;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Radio() {
     }
+
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
@@ -89,21 +94,23 @@ public class Radio {
             currentSoundVolume = minSoundVolume;
         }
     }
-        public void prevRadioStation ( ) {
-            if (currentRadioStation > minRadioStation) {
-                currentRadioStation--;
 
-            } else {
-                currentRadioStation = maxRadioStation;
-            }
+    public void prevRadioStation() {
+        if (currentRadioStation > minRadioStation) {
+            currentRadioStation--;
 
+        } else {
+            currentRadioStation = maxRadioStation;
         }
-        public void nextRadioStation ( ) {
-            if (currentRadioStation < maxRadioStation) {
-                currentRadioStation++;
-            } else {
-                currentRadioStation = minRadioStation;
-            }
+
+    }
+
+    public void nextRadioStation() {
+        if (currentRadioStation < maxRadioStation) {
+            currentRadioStation++;
+        } else {
+            currentRadioStation = minRadioStation;
         }
     }
+}
 
